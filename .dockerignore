@@ -1,0 +1,22 @@
+# Maven build outputs
+target/
+
+# IDE configs
+.idea/
+*.iml
+out/
+
+# Logs / temp
+*.log
+logs/
+tmp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+.env
