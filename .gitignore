@@ -1,0 +1,24 @@
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+
+### Logs ###
+*.log
+/logs/
+/tmp/
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Docker ###
+/dist/
+/node_modules/
+
+.env
