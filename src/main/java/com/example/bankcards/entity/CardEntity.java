@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "cards", uniqueConstraints = {
-    @UniqueConstraint(name = "uq_cards_fingerprint", columnNames = "cardNumberFingerprint")
+        @UniqueConstraint(name = "uq_cards_fingerprint", columnNames = "card_number_fingerprint")
 })
 @Getter
 @Setter
@@ -56,7 +56,7 @@ public class CardEntity {
     private BigDecimal balance = BigDecimal.ZERO;
 
     @Version
-    private Integer version;
+    private Integer version = 0;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
