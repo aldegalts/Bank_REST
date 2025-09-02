@@ -1,0 +1,50 @@
+databaseChangeLog:
+    - changeSet:
+          id: 004-seed-admin
+          author: aldegalts
+          changes:
+              - insert:
+                    tableName: roles
+                    columns:
+                        - column:
+                              name: name
+                              value: "ADMIN"
+              - insert:
+                    tableName: roles
+                    columns:
+                        - column:
+                              name: name
+                              value: "USER"
+
+              - insert:
+                    tableName: users
+                    columns:
+                        - column:
+                              name: username
+                              value: "admin"
+                        - column:
+                              name: password
+                              value: "$2a$10$EXAMPLE_HASH_FOR_ADMIN_PASSWORD_REPLACE_ME"
+                        - column:
+                              name: full_name
+                              value: "Administrator"
+                        - column:
+                              name: enabled
+                              valueBoolean: true
+
+              - sql:
+                    sql: |
+                        INSERT INTO user_roles (user_id, role_id)
+                        SELECT u.id, r.id FROM users u, roles r
+                        WHERE u.username = 'admin' AND r.name = 'ADMIN';
+
+          rollback:
+              - delete:
+                    tableName: user_roles
+                    where: "user_id = (SELECT id FROM users WHERE username='admin')"
+              - delete:
+                    tableName: users
+                    where: "username = 'admin'"
+              - delete:
+                    tableName: roles
+                    where: "name in ('ADMIN','USER')"
