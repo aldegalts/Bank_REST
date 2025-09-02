@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-add-constraints
+      author: aldegalts
+      changes:
+        - addCheckConstraint:
+            tableName: cards
+            constraintName: check_cards_expiry_month
+            checkConstraint: "expiry_month >= 1 AND expiry_month <= 12"
+
+        - addCheckConstraint:
+            tableName: transfers
+            constraintName: check_transfers_amount_positive
+            checkConstraint: "amount > 0"
+
+        - addCheckConstraint:
+            tableName: transfers
+            constraintName: check_transfers_different_cards
+            checkConstraint: "from_card_id != to_card_id"
