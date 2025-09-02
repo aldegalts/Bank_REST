@@ -24,7 +24,7 @@ databaseChangeLog:
                               value: "admin"
                         - column:
                               name: password
-                              value: "$2a$10$EXAMPLE_HASH_FOR_ADMIN_PASSWORD_REPLACE_ME"
+                              value: "$2a$10$abcdefghijklmnopqrstuvwxyz123456789"
                         - column:
                               name: full_name
                               value: "Administrator"
