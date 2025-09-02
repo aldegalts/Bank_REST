@@ -1,4 +1,4 @@
-package com.example.bankcards.dto;
+package com.example.bankcards.dto.transfer;
 
 import com.example.bankcards.enums.TransferStatus;
 import lombok.*;
