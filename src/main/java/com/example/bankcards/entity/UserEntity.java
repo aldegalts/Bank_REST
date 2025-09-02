@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
-    @UniqueConstraint(name = "uq_users_username", columnNames = "username")
+        @UniqueConstraint(name = "uq_users_username", columnNames = "username")
 })
 @Getter
 @Setter
@@ -38,10 +38,9 @@ public class UserEntity {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "user_roles",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id"),
-        uniqueConstraints = @UniqueConstraint(name = "pk_user_roles", columnNames = {"user_id", "role_id"})
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<RoleEntity> roles;
 }
